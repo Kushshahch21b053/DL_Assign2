@@ -19,6 +19,9 @@ def get_config():
                         help='Number of filters in each convolutional layer')
     parser.add_argument('--filter_size', type=int, default=3,
                         help='Size of the convolutional filters')
+    parser.add_argument('--filter_organization', type=str, default='same',
+                        choices=['same', 'double', 'half'],
+                        help='Strategy for distributing filters across layers')
     parser.add_argument('--dense_neurons', type=int, default=128,
                         help='Number of neurons in the dense layer')
     parser.add_argument('--activation', type=str, default='relu',
@@ -26,6 +29,12 @@ def get_config():
                         help='Activation function to use')
     parser.add_argument('--input_size', type=int, nargs=2, default=[224, 224],
                         help='Input image dimensions (height, width)')
+    parser.add_argument('--use_batchnorm', action='store_true',
+                        help='Whether to use batch normalization')
+    parser.add_argument('--dropout_rate', type=float, default=0.0,
+                        help='Dropout rate (0.0 means no dropout)')
+    parser.add_argument('--augmentation', action='store_true',
+                        help='Whether to use data augmentation')
     
     # Training configuration - these will be needed for later parts of the assignment
     parser.add_argument('--batch_size', type=int, default=32,
@@ -34,7 +43,13 @@ def get_config():
                         help='Learning rate')
     parser.add_argument('--epochs', type=int, default=10,
                         help='Number of training epochs')
-    
+    parser.add_argument('--weight_decay', type=float, default=0.0,
+                        help='Weight decay for regularization')
+    parser.add_argument('--val_split', type=float, default=0.2,
+                        help='Proportion of training data to use for validation')
+    parser.add_argument('--random_seed', type=int, default=42,
+                        help='Random seed for reproducibility')
+
     # Wandb configuration
     parser.add_argument('--use_wandb', action='store_true',
                         help='Whether to use Weights & Biases for logging')
