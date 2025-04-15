@@ -1,1 +1,5 @@
 /nature_12K
+__pycache__/
+*.pyc
+wandb/
+best_model.pth

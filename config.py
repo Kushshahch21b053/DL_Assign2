@@ -25,7 +25,7 @@ def get_config():
     parser.add_argument('--dense_neurons', type=int, default=128,
                         help='Number of neurons in the dense layer')
     parser.add_argument('--activation', type=str, default='relu',
-                        choices=['relu', 'gelu', 'silu', 'mish'],
+                        choices=['relu', 'gelu', 'silu', 'mish','leaky_relu'],
                         help='Activation function to use')
     parser.add_argument('--input_size', type=int, nargs=2, default=[224, 224],
                         help='Input image dimensions (height, width)')
@@ -49,11 +49,14 @@ def get_config():
                         help='Proportion of training data to use for validation')
     parser.add_argument('--random_seed', type=int, default=42,
                         help='Random seed for reproducibility')
+    parser.add_argument('--optimizer', type=str, default='adam',
+                    choices=['adam', 'sgd'],
+                    help='Optimizer to use (adam or sgd)')
 
     # Wandb configuration
     parser.add_argument('--use_wandb', action='store_true',
                         help='Whether to use Weights & Biases for logging')
-    parser.add_argument('--wandb_project', type=str, default='iNaturalist-CNN',
+    parser.add_argument('--wandb_project', type=str, default='DL_Assign2',
                         help='Wandb project name')
     parser.add_argument('--wandb_entity', type=str, default=None,
                         help='Wandb entity name')
