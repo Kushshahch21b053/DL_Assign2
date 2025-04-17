@@ -5,6 +5,7 @@ from torchvision import transforms
 from model import FlexibleCNN
 from dataset import get_data_loaders, CLASS_NAME_TO_IDX
 from train import train_model
+from config import get_config
 
 if __name__ == '__main__':
     """
@@ -36,7 +37,8 @@ if __name__ == '__main__':
     """
     Data Loading
     """
-    data_dir = 'nature_12K/inaturalist_12K'
+    args = get_config()
+    data_dir = args.data_dir
 
     train_loader, val_loader, test_loader = get_data_loaders(
         data_dir=data_dir,

@@ -22,7 +22,7 @@ def main():
 
     # Get data loaders
     train_loader, val_loader, _ = get_data_loaders(
-        data_dir='nature_12K\\inaturalist_12K',
+        data_dir=args.data_dir,
         batch_size=args.batch_size,
         val_split=args.val_split,
         apply_augmentation=args.augmentation,

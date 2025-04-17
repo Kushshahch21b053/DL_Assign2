@@ -61,6 +61,11 @@ def get_config():
     parser.add_argument('--wandb_entity', type=str, default=None,
                         help='Wandb entity name')
     
+    # -- DATA DIRECTORY --
+    parser.add_argument('--data_dir', type=str,
+                        default='nature_12K/inaturalist_12K',
+                        help='Path to the iNaturalist dataset root') 
+    
     args = parser.parse_args()
     
     # Initialize wandb if enabled
