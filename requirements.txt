@@ -1,0 +1,17 @@
+# Deep learning framework (pick the CUDA version matching your setup)
+torch>=1.12.0,<2.0.0
+torchvision>=0.13.0,<1.0.0
+
+# Core scientific / image libraries
+numpy>=1.21.0
+scikit-learn>=1.0.0
+pillow>=8.3.0
+
+# Training utilities
+tqdm>=4.60.0
+
+# Plotting
+matplotlib>=3.4.0
+
+# Optional logging with Weights & Biases
+wandb>=0.12.0

@@ -20,6 +20,11 @@ https://api.wandb.ai/links/ch21b053-indian-institute-of-technology-madras/usnef6
 
 ### How to run code
 
+- Firstly, if needed do:
+```
+pip install -r requirements.txt
+```
+
 **Part A Question 1-3:**
 - To run the sweep, login into wandb, and then run the following
 ```
